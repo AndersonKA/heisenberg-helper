@@ -26,6 +26,7 @@
                   <div class="acc-container">
                   <div class="btn-container-table">
                     <button class="btn btn-table" {{action "deleteItem" item}}>Delete</button>
+                    {{#link-to "dashboard.item.edit" item class="btn btn-success"}}Edit Item{{/link-to}}
                     {{#link-to "dashboard.timer" item class="btn btn-table"}}Add Timer{{/link-to}}
                     {{#link-to "dashboard.add-time" item class="btn btn-table"}}Add Time{{/link-to}}
                   </div>
