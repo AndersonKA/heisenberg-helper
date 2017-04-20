@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import validator from './validator';
-// I think loginUser is failing b/c this is the wrong file path
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
@@ -11,7 +10,7 @@ export default Ember.Controller.extend({
       await changeset.validate();
 
       if (changeset.get('isInvalid')) {
-        return alert('Invalid login information');
+        return alert('The login information is invalid');
       }
 
       await changeset.save();
@@ -22,11 +21,11 @@ export default Ember.Controller.extend({
           password: this.get('model.password'),
         });
       } catch (err) {
-        console.log('oops', err)
+        console.log('oops', err);
         if (err) {
           this.set('errorMessage', err.errors[0].title);
         } else {
-          console.error('Authentication failed!');
+          return alert('Authentication failed!');
         }
       }
     },

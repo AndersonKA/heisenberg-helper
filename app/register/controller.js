@@ -15,9 +15,15 @@ export default Ember.Controller.extend({
 
       const user = this.store.createRecord('user', this.model);
 
-      await user.save();
+      try {
+        await user.save();
 
-      this.transitionToRoute('login');
+        this.transitionToRoute('login');
+      } catch (e) {
+        user.deleteRecord();
+
+        alert('That username already exists in the system');
+      }
     },
   },
 });

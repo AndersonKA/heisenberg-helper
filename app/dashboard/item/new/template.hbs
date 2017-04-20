@@ -8,7 +8,7 @@
     <div class="close">
       {{#link-to "dashboard" class="close"}}X{{/link-to}}
     </div>
-    {{#with (changeset model) as |formValues|}}
+    {{#with (changeset model validator) as |formValues|}}
 
       <form {{action "addItem" formValues on="submit"}}>
         <div class="form-group">

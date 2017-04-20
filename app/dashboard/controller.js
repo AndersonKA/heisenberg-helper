@@ -7,8 +7,6 @@ export default Ember.Controller.extend({
   },
 
   unwrappedModel: Ember.computed('model.@each.totalTime', function () {
-    console.log('Hello');
-
     return this.model.map(x => x.toJSON());
   }),
 

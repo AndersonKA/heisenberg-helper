@@ -18,7 +18,7 @@
             <div class="card table-card">
                 <h4 class="card-header card-header-grey">List of Items
                 <h6>(click on an item to see more)</h6>
-                {{#link-to "dashboard.item.new" class="btn btn-dashboard btn-new" }}New Item{{/link-to}}
+                {{!-- {{#link-to "dashboard.item.new" class="btn btn-dashboard btn-new" }}New Item{{/link-to}} --}}
             </h4>
               <div class="card-block accordion">
                 {{#bs-accordion as |acc|}}
@@ -26,7 +26,7 @@
                   <div class="acc-container">
                   <div class="btn-container-table">
                     <button class="btn btn-table" {{action "deleteItem" item}}>Delete</button>
-                    {{#link-to "dashboard.item.edit" item class="btn btn-success"}}Edit Item{{/link-to}}
+                    {{#link-to "dashboard.item.edit" item class="btn btn-table"}}Edit Item{{/link-to}}
                     {{#link-to "dashboard.timer" item class="btn btn-table"}}Add Timer{{/link-to}}
                     {{#link-to "dashboard.add-time" item class="btn btn-table"}}Add Time{{/link-to}}
                   </div>

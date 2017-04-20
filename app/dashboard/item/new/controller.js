@@ -6,8 +6,14 @@ export default Ember.Controller.extend({
 
   validator,
   actions: {
-    addItem(changeset) {
-      changeset.save();
+    async addItem(changeset) {
+      await changeset.validate();
+
+      if (changeset.get('isInvalid')) {
+        return alert('Please fill out both fields of the form.');
+      }
+
+      await changeset.save();
       const item = this.store.createRecord('item', this.model);
 
       item.save();
